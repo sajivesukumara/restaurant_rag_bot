@@ -1,6 +1,6 @@
 # restaurant_rag_bot
 
-
+```
 restaurant_rag_bot/
 ├── ocr/
 │   └── cloud_ocr.py
@@ -21,3 +21,4 @@ restaurant_rag_bot/
 │   └── services.py
 └── tests/
     └── test_api.py
+```
