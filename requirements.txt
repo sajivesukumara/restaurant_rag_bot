@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+openai
+pinecone-client
+transformers
+datasets
+pytest
+google-cloud-vision
