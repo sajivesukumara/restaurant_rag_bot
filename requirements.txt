@@ -5,3 +5,4 @@ transformers
 datasets
 pytest
 google-cloud-vision
+weaviate-client
