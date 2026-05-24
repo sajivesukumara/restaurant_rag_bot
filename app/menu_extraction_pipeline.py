@@ -9,8 +9,8 @@ import time
 load_dotenv()
 
 # ====================== CONFIGURATION ======================
-STAGE1_MODEL = "PaddleOCR-VL"        # Stage 1: Local OCR VLM
-PROVIDER = "grok"                    # Stage 2: Cloud LLM ("grok", "openai", "anthropic")
+STAGE1_MODEL = "PaddleOCR-VL"             # Stage 1: Local OCR VLM
+PROVIDER = os.getenv("PROVIDER", "grok")  # Stage 2: Cloud LLM ("grok", "openai", "anthropic")
 
 IMAGE_FOLDER = "menu_images"
 INTERMEDIATE_FOLDER = "intermediate_ocr"
