@@ -1,0 +1,39 @@
+{
+  "restaurant": {
+    "id": "string",
+    "name": "string",
+    "address": "string",
+    "cuisine_type": "string",
+    "source": "string",
+    "source_file": "string",
+    "menu": [
+      {
+        "id": "string",
+        "name": "string",
+        "category": "string",
+        "sub_category": "string",
+        "veg_nonveg": "string",
+        "dietary_tags": ["array"],
+        "ingredients": ["array"],
+        "allergens": ["array"],
+        "price": number,
+        "currency": "string",
+        "calories": number,
+        "protein_g": number,
+        "carbs_g": number,
+        "fat_g": number,
+        "portion": { "size": "string", "serves": number },
+        "spiciness_level": number,
+        "preparation_time": "string",
+        "popularity_score": number,
+        "description": "string",
+        "pairings": ["array"],
+        "image_url": "string",
+        "tags": ["array"],
+        "halal": boolean,
+        "jain_available": boolean,
+        "search_text": "string"
+      }
+    ]
+  }
+}
