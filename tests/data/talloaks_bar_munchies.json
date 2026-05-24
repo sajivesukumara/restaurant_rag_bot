@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Cheese Cherry Pineapple",
+    "category": "Snacks",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Cheese, cherry, pineapple",
+    "price": 200,
+    "suggestion": "Pairs well with cocktails"
+  },
+  {
+    "name": "Mushroom Cheese Balls",
+    "category": "Snacks",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Mushroom, cheese, breadcrumbs, spices",
+    "price": 180,
+    "suggestion": "Best with spicy dip"
+  },
+  {
+    "name": "Bread Pakoda",
+    "category": "Snacks",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Bread, potato filling, gram flour, spices",
+    "price": 100,
+    "suggestion": "Pairs well with tea"
+  },
+  {
+    "name": "Masala Peanuts",
+    "category": "Snacks",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Peanuts, spices, curry leaves",
+    "price": 80,
+    "suggestion": "Great with beer"
+  }
+]

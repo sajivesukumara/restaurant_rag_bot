@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Tandoori Malai Paneer Tikka",
+    "category": "Starter",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Paneer, cream, yogurt, mild spices",
+    "price": 375,
+    "suggestion": "Goes well with mint chutney and naan"
+  },
+  {
+    "name": "Cheesy Mushroom Malai Tikka",
+    "category": "Starter",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Mushroom, cheese, cream, spices",
+    "price": 375,
+    "suggestion": "Pairs well with green chutney"
+  },
+  {
+    "name": "Stuffed Cottage Cheese Grill",
+    "category": "Starter",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Cottage cheese, cheese stuffing, herbs, spices",
+    "price": 395,
+    "suggestion": "Best served with salad and chutney"
+  },
+  {
+    "name": "Buttery Afghan Chicken",
+    "category": "Starter",
+    "veg/nonveg": "Non Vegetarian",
+    "ingredients": "Chicken, butter, cream, Afghan spices",
+    "price": 445,
+    "suggestion": "Pairs well with garlic naan"
+  },
+  {
+    "name": "Chicken Seekh",
+    "category": "Starter",
+    "veg/nonveg": "Non Vegetarian",
+    "ingredients": "Minced chicken, herbs, spices",
+    "price": 425,
+    "suggestion": "Best with mint chutney"
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Coke Can",
+    "category": "Drinks",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Carbonated cola beverage",
+    "price": 125,
+    "suggestion": "Pairs well with snacks"
+  },
+  {
+    "name": "Sprite Can",
+    "category": "Drinks",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Lemon-lime carbonated beverage",
+    "price": 125,
+    "suggestion": "Good with spicy food"
+  },
+  {
+    "name": "Lemon Ice Tea",
+    "category": "Drinks",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Tea extract, lemon flavor, sugar",
+    "price": 125,
+    "suggestion": "Refreshing with starters"
+  },
+  {
+    "name": "Cappuccino",
+    "category": "Coffee",
+    "veg/nonveg": "Vegetarian",
+    "ingredients": "Espresso, milk foam",
+    "price": 95,
+    "suggestion": "Best with cookies or sandwiches"
+  }
+]
