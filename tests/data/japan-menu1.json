@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Ushio (潮うしお)",
+    "category": "Main Course",
+    "veg_nonveg": "Non-Vegetarian",
+    "ingredients": "Assorted premium nigiri sushi (tuna, salmon, shrimp, squid, etc.), miso soup, and sides",
+    "price": 1890,
+    "suggestion": "Pairs well with green tea or cold Japanese beer"
+  },
+  {
+    "name": "Yukari (縁ゆかり)",
+    "category": "Main Course",
+    "veg_nonveg": "Non-Vegetarian",
+    "ingredients": "9 pieces of assorted nigiri sushi + sides, miso soup",
+    "price": 990,
+    "suggestion": "Great with wasabi, soy sauce, and pickled ginger"
+  },
+  {
+    "name": "Miyabi (雅みやび)",
+    "category": "Main Course",
+    "veg_nonveg": "Non-Vegetarian",
+    "ingredients": "Premium nigiri set (8 pieces) + maki rolls, miso soup",
+    "price": 1490,
+    "suggestion": "Best paired with sake"
+  },
+  {
+    "name": "Jou Sushi (上寿司)",
+    "category": "Main Course",
+    "veg_nonveg": "Non-Vegetarian",
+    "ingredients": "Luxury sushi set with 12 pieces including otoro (fatty tuna) and various premium toppings",
+    "price": 2390,
+    "suggestion": "Enjoy with high-quality sake or green tea"
+  },
+  {
+    "name": "Sake Sanshoku Don (鮪三色丼)",
+    "category": "Main Course",
+    "veg_nonveg": "Non-Vegetarian",
+    "ingredients": "Three varieties of tuna over rice bowl, with miso soup",
+    "price": 890,
+    "suggestion": "Goes well with seaweed salad or edamame"
+  },
+  {
+    "name": "Barachirashi Don (バラチラシ丼)",
+    "category": "Main Course",
+    "veg_nonveg": "Non-Vegetarian",
+    "ingredients": "Colorful scattered sushi bowl with mixed seafood, vegetables, and fish roe",
+    "price": 890,
+    "suggestion": "Excellent with hot green tea"
+  }
+]
