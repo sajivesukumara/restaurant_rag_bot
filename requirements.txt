@@ -6,3 +6,6 @@ datasets
 pytest
 google-cloud-vision
 weaviate-client
+anthropic
+python-dotenv
+tqdm
