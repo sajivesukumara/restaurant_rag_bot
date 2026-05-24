@@ -22,3 +22,11 @@ restaurant_rag_bot/
 └── tests/
     └── test_api.py
 ```
+
+
+
+
+
+
+
+Assisted by : Microsoft Copilot
