@@ -46,83 +46,72 @@ Use open-source models (sentence-transformers, InstructorXL) instead of cloud em
 
 ## Menu Fields - The json key fields that should be expected from the LLM to respond with
 
-# Enhanced Menu Item JSON Schema
+# Final Restaurant Menu JSON Schema
 
-| Field                  | Type                     | Description                                                                 | Why Useful                                                                 | Example |
-|------------------------|--------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------------|---------|
-| `id`                   | string                   | Unique identifier for the menu item                                         | Enables tracking, deduplication, and referencing across datasets          | `tanjore_001` |
-| `name`                 | string                   | Name of the dish                                                            | Core identifier for search, display, and model training                   | `Paneer Mattar` |
-| `category`             | string                   | Main category of the item                                                   | Helps in hierarchical classification and menu filtering                   | `Vegetables` |
-| `sub_category`         | string                   | More specific subcategory                                                   | Improves fine-grained classification and recommendation systems           | `Curry` |
-| `veg_nonveg`           | string                   | Dietary classification (Veg / Non-Veg)                                      | Essential for dietary preference filtering                                | `Vegetarian` |
-| `dietary_tags`         | array[string]            | Additional dietary labels                                                   | Supports advanced filtering (vegan, gluten-free, etc.)                    | `["vegetarian", "gluten-free"]` |
-| `ingredients`          | array[string]            | List of main ingredients                                                    | Critical for allergen detection, recipe generation, and nutritional analysis | `["paneer", "green peas", "spices"]` |
-| `allergens`            | array[string]            | List of common allergens                                                    | Vital for food safety, user health, and compliance                        | `["dairy"]` |
-| `price`                | number                   | Price of the item                                                           | Enables pricing analysis, value comparison, and dynamic pricing models    | `9.99` |
-| `currency`             | string                   | Currency code                                                               | Supports multi-currency datasets and international use                    | `CAD` |
-| `calories`             | number                   | Estimated calories per serving                                              | Important for nutrition apps and health-based recommendations             | `380` |
-| `protein_g`            | number                   | Protein content in grams                                                    | Supports macronutrient analysis and fitness/diet apps                     | `18` |
-| `carbs_g`              | number                   | Carbohydrate content in grams                                               | Key for nutritional modeling and diabetic-friendly filtering              | `42` |
-| `fat_g`                | number                   | Fat content in grams                                                        | Completes macronutrient profile for ML-based nutrition prediction         | `22` |
-| `portion`              | object                   | Portion details (`size`, `serves`)                                          | Helps in quantity-based analysis and cost-per-serving calculations        | `{ "size": "Full Plate", "serves": 2 }` |
-| `spiciness_level`      | integer (0-5)            | Spiciness level                                                             | Useful for preference matching and personalization                       | `2` |
-| `preparation_time`     | string                   | Approximate preparation time                                                 | Important for operational efficiency and kitchen scheduling models        | `18 minutes` |
-| `popularity_score`     | number (0-5)             | Estimated popularity rating                                                 | Powers recommendation engines and trend analysis                          | `4.7` |
-| `description`          | string                   | Short descriptive text                                                      | Useful for NLP tasks, embeddings, and text generation                     | `Green peas & cottage cheese in spiced gravy` |
-| `pairings`             | array[string]            | Suggested food/drink pairings                                               | Enhances recommendation systems and cross-selling models                  | `["garlic naan", "raita"]` |
-| `image_url`            | string                   | Path or URL to the dish image                                               | Enables multimodal (vision + language) model training                     | `images/paneer_mattar.jpg` |
-| `restaurant_name`      | string                   | Name of the restaurant                                                      | Provides context and supports restaurant-specific analysis                | `Tanjore North Indian Cuisine` |
-| `cuisine_type`         | string                   | Type of cuisine                                                             | Critical for cuisine classification and cultural context                  | `North Indian` |
-| `availability`         | object                   | Structured availability information                                         | Allows time-based and seasonal filtering in apps                          | `{ "available": true, "meal_slots": ["Lunch", "Dinner"], ... }` |
-| `tags`                 | array[string]            | Custom tags for the item                                                    | Flexible multi-label classification and marketing insights                | `["popular", "creamy"]` |
-| `halal`                | boolean                  | Whether the dish is Halal                                                   | Important for religious dietary compliance                                | `false` |
-| `jain_available`       | boolean                  | Whether Jain version (no onion/garlic) is available                         | Supports strict vegetarian/Jain dietary filtering                         | `false` |
-| `source`               | string                   | Origin of the data (image, website, etc.)                                   | Crucial for data lineage, auditing, and quality control                   | `Menu Image - Tanjore` |
-| `search_text`          | string                   | Combined searchable text for full-text / vector search                      | Improves search performance and semantic search capabilities              | `paneer mattar vegetarian curry peas cheese north indian` |
+| Field                          | Type                     | Description                                                                 | Why Useful                                                                 | Example |
+|--------------------------------|--------------------------|-----------------------------------------------------------------------------|----------------------------------------------------------------------------|---------|
+| `restaurant.id`                | string                   | Unique identifier for the restaurant                                        | Tracking and deduplication of restaurants                                  | `tanjore_001` |
+| `restaurant.name`              | string                   | Name of the restaurant                                                      | Display and identification                                                 | `Tanjore North Indian Cuisine` |
+| `restaurant.address`           | string                   | Physical address of the restaurant                                          | Location-based services and context                                        | `151 Pinnacle Street, Belleville, Ontario` |
+| `restaurant.cuisine_type`      | array[string]            | List of cuisine types (supports multi-cuisine)                              | Accurate representation of restaurants offering multiple cuisines          | `["North Indian", "South Indian"]` |
+| `restaurant.source`            | string                   | Source of the menu data (e.g. Image, Website)                               | Data lineage and quality tracking                                          | `Menu Image` |
+| `restaurant.source_file`       | string                   | Original filename or image source                                           | Traceability back to original menu image                                   | `Tanjore-North-Indian-Cuisine-Menu-1-1.jpg` |
+| `restaurant.menu`              | array                    | List of all menu items                                                      | Core data structure containing all dishes                                  | `[ {menu item objects} ]` |
+| **Menu Item Fields**           |                          |                                                                             |                                                                            |         |
+| `menu[].id`                    | string                   | Unique ID for each menu item                                                | Item tracking and referencing                                              | `tanjore_001` |
+| `menu[].name`                  | string                   | Name of the dish                                                            | Core identifier for search and display                                     | `Paneer Mattar` |
+| `menu[].category`              | string                   | Main category                                                               | Menu organization and filtering                                            | `Vegetables` |
+| `menu[].sub_category`          | string                   | Specific subcategory                                                        | Fine-grained classification                                                | `Curry` |
+| `menu[].veg_nonveg`            | string                   | Vegetarian / Non-Vegetarian classification                                  | Dietary filtering                                                          | `Vegetarian` |
+| `menu[].dietary_tags`          | array[string]            | Additional dietary preferences                                              | Advanced filtering (vegan, gluten-free, etc.)                              | `["vegetarian", "gluten-free"]` |
+| `menu[].ingredients`           | array[string]            | List of main ingredients                                                    | Allergen detection, recipe generation, nutrition                           | `["paneer", "green peas"]` |
+| `menu[].allergens`             | array[string]            | List of allergens                                                           | Food safety and user health                                                | `["dairy"]` |
+| `menu[].price`                 | number                   | Price of the item                                                           | Pricing analysis and comparison                                            | `9.99` |
+| `menu[].currency`              | string                   | Currency code                                                               | Multi-currency support                                                     | `CAD` |
+| `menu[].description`           | string                   | Short description of the dish                                               | NLP, embeddings, and user display                                          | `Green peas & cottage cheese...` |
+| `menu[].pairings`              | array[string]            | Recommended food/drink pairings                                             | Recommendation and cross-selling                                           | `["garlic naan", "raita"]` |
+| `menu[].halal`                 | boolean                  | Halal availability                                                          | Religious dietary compliance                                               | `false` |
+| `menu[].jain_available`        | boolean                  | Jain version availability                                                   | Strict vegetarian filtering                                                | `false` |
+| `menu[].availability`          | object                   | Structured availability information                                         | Time-based, seasonal, and day-wise filtering                               | `{ "available": true, "meal_slots": ["Lunch", "Dinner"], ... }` |
 
 
-## JSON Schema
+## Enhanced Menu Item JSON Schema
 
 ```
 {
-  "id": "string",
-  "name": "string",
-  "category": "string",
-  "sub_category": "string",
-  "veg_nonveg": "Vegetarian | Non-Vegetarian | Eggetarian",
-  "dietary_tags": ["array"],
-  "ingredients": ["array of strings"],
-  "allergens": ["array"],
-  "price": number,
-  "currency": "string",
-  "calories": number,
-  "protein_g": number,
-  "carbs_g": number,
-  "fat_g": number,
-  "portion": {
-    "size": "string",
-    "serves": number
-  },
-  "spiciness_level": number,
-  "preparation_time": "string",
-  "popularity_score": number,
-  "description": "string",
-  "pairings": ["array of strings"],
-  "image_url": "string",
-  "restaurant_name": "string",
-  "cuisine_type": "string",
-  "availability": {
-    "available": true,
-    "seasonal": false,
-    "season_name": null,
-    "meal_slots": ["array"],
-    "days": ["array"]
-  },
-  "tags": ["array"],
-  "halal": boolean,
-  "jain_available": boolean,
-  "source": "string",
-  "search_text": "string"
+  "restaurant": {
+    "id": "string",
+    "name": "string",
+    "address": "string",
+    "cuisine_type": ["array of strings"],
+    "source": "string",
+    "source_file": "string",
+    "menu": [
+      {
+        "id": "string",
+        "name": "string",
+        "category": "string",
+        "sub_category": "string",
+        "veg_nonveg": "string",
+        "dietary_tags": ["array"],
+        "ingredients": ["array"],
+        "allergens": ["array"],
+        "price": number,
+        "currency": "string",
+        "description": "string",
+        "pairings": ["array"],
+        "halal": boolean,
+        "jain_available": boolean,
+        "availability": {
+          "available": boolean,
+          "seasonal": boolean,
+          "season_name": "string | null",
+          "meal_slots": ["array"],
+          "days": ["array"]
+        },
+      }
+    ]
+  }
 }
 ```
 Sample Data: test/data/tanjaor-menu1.json, test/data/japanese-menu1.json
