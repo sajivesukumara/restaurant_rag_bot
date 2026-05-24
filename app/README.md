@@ -61,3 +61,12 @@ Linux / macOS: ~/.paddleocr/
 Windows: C:\Users\YourUsername\.paddleocr\
 ```
 
+### How to run the application
+
+```
+export PROVIDER=grok
+export XAI_API_KEY=xai-...
+python3 menu_extraction_pipeline.py
+
+```
+
