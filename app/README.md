@@ -1,4 +1,40 @@
 
+
+
+# Menu Extraction Pipeline Architecture
+
+
+## Overview
+A **Two-Stage Hybrid Pipeline** for converting restaurant menu images into structured JSON.
+
+# Menu Extraction Pipeline Architecture
+
+## Overview
+A **Two-Stage Hybrid Pipeline** for converting restaurant menu images into structured JSON.
+
+```mermaid
+flowchart TD
+    A[Menu Images .jpg .png] --> B[Stage 1: Local OCR\nPaddleOCR-VL]
+    B --> C[Raw Text + Layout\n+ Confidence Scores]
+    C --> D[Intermediate Storage\nintermediate_ocr/]
+    D --> E[Stage 2: Cloud LLM\nGrok / GPT-4o / Claude]
+    E --> F[Structured JSON\nwith Normalization Fields]
+    F --> G[Final Output\nfinal_json/]
+
+    subgraph "Stage 1: Local Processing"
+        B
+        C
+    end
+
+    subgraph "Stage 2: Cloud Processing"
+        E
+    end
+
+    style A fill:#e3f2fd, stroke:#1976d2
+    style F fill:#e8f5e9, stroke:#2e7d32
+    style G fill:#e8f5e9, stroke:#2e7d32
+```
+
 ### Why This Two-Stage Pipeline Works Well
 
 **Stage 1: Local VLM (OCR + Layout Extraction)**
