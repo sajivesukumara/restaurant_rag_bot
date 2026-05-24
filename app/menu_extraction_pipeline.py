@@ -8,31 +8,44 @@ import time
 
 load_dotenv()
 
+# ====================== PROJECT CONFIG ======================
+PROJECT_ROOT = Path(__file__).parent
+IMAGE_FOLDER = PROJECT_ROOT / "menu_images"
+INTERMEDIATE_FOLDER = PROJECT_ROOT / "intermediate_ocr"
+OUTPUT_FOLDER = PROJECT_ROOT / "final_json"
+MODELS_FOLDER = PROJECT_ROOT / "models" / "paddleocr"
+
+# Create all necessary folders
+for folder in [IMAGE_FOLDER, INTERMEDIATE_FOLDER, OUTPUT_FOLDER, MODELS_FOLDER]:
+    folder.mkdir(parents=True, exist_ok=True)
+
+# Set custom model directory for PaddleOCR
+os.environ['PADDLE_HOME'] = str(MODELS_FOLDER)
+os.environ['PADDLE_PDX_CACHE_HOME'] = str(MODELS_FOLDER)
+
+print(f"📁 Models will be downloaded to: {MODELS_FOLDER}")
+
 # ====================== CONFIGURATION ======================
 STAGE1_MODEL = "PaddleOCR-VL"             # Stage 1: Local OCR VLM
 PROVIDER = os.getenv("PROVIDER", "grok")  # Stage 2: Cloud LLM ("grok", "openai", "anthropic")
 
-IMAGE_FOLDER = "menu_images"
-INTERMEDIATE_FOLDER = "intermediate_ocr"
-OUTPUT_FOLDER = "final_json"
-
-os.makedirs(INTERMEDIATE_FOLDER, exist_ok=True)
-os.makedirs(OUTPUT_FOLDER, exist_ok=True)
-
-# Set custom cache directory
-os.environ['PADDLE_PDX_CACHE_HOME'] = 'd:/models'
-os.environ['PADDLE_HOME'] = 'd:/models'
-
-# ====================== STAGE 1: LOCAL PADDLEOCR-VL ======================
+# ====================== STAGE 1: PADDLEOCR-VL ======================
 def setup_paddleocr_vl():
-    print("Setting up PaddleOCR-VL...")
+    print("🔧 Setting up PaddleOCR-VL with custom model directory...")
     try:
         from paddleocr import PaddleOCR
-        ocr = PaddleOCR(use_angle_cls=True, lang="en", show_log=False)
-        print("✅ PaddleOCR-VL loaded successfully!")
+        ocr = PaddleOCR(
+            use_angle_cls=True, 
+            lang="en", 
+            show_log=False,
+            det_model_dir=str(MODELS_FOLDER / "det"),
+            rec_model_dir=str(MODELS_FOLDER / "rec"),
+            cls_model_dir=str(MODELS_FOLDER / "cls")
+        )
+        print("✅ PaddleOCR-VL initialized successfully!")
         return ocr
     except ImportError:
-        print("❌ PaddleOCR not installed. Run: pip install paddleocr paddlepaddle")
+        print("❌ Please install PaddleOCR: pip install paddleocr paddlepaddle")
         exit(1)
 
 def extract_with_paddleocr(ocr, image_path: Path):
