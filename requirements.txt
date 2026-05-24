@@ -1,7 +1,6 @@
-fastapi
-uvicorn
-openai
-pinecone-client
+fastapi==0.111.0
+uvicorn==0.29.0
+openai==1.30.0
 transformers
 datasets
 pytest
