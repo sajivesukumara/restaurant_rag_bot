@@ -1,12 +1,4 @@
 
-
-
-# Menu Extraction Pipeline Architecture
-
-
-## Overview
-A **Two-Stage Hybrid Pipeline** for converting restaurant menu images into structured JSON.
-
 # Menu Extraction Pipeline Architecture
 
 ## Overview
@@ -53,6 +45,22 @@ This hybrid gives you the best of both worlds: high accuracy + structured output
 - Create a complete two-stage pipeline script (Local VLM Stage 1 + Cloud LLM Stage 2)?
 - Focus on one specific model (e.g., PaddleOCR-VL or Nanonets-OCR2) with full setup instructions?
 
+### Pipeline Flow
+
+Input → Restaurant menu images
+Stage 1 (Local) → PaddleOCR-VL extracts text with layout awareness
+Intermediate → Saves raw OCR for debugging/reuse
+Stage 2 (Cloud) → LLM converts raw text into your exact schema
+Output → High-quality structured JSON with normalization fields
+
+### Benefits of This Architecture
+
+Privacy — Sensitive images processed locally in Stage 1
+Cost Efficient — Only final structuring uses paid LLM
+Reliable — Best OCR + Best reasoning combined
+Reproducible — Models cached locally
+Debuggable — Intermediate OCR files available
+
 ### Recommended Model for Stage 1: PaddleOCR-VL (0.9B)
 ### Why PaddleOCR-VL?
 
@@ -74,11 +82,16 @@ XAI_API_KEY=xai-...
 
 ### Project Structure
 <pre>
-project/
-├── menu_images/          ← Put your JPGs here
-├── intermediate_ocr/     ← Auto-created
-├── final_json/           ← Final structured JSONs
-└── menu_extraction_pipeline.py
+menu-extraction-project/
+├── menu_images/              ← Place all your menu images here
+├── models/
+│   └── paddleocr/            ← Auto-downloaded models (custom directory)
+├── intermediate_ocr/         ← Raw OCR output from Stage 1
+├── final_json/               ← Final structured JSON files
+├── menu_extraction_pipeline.py
+├── .env
+├── requirements.txt
+└── README.md
   
 </pre>
 
