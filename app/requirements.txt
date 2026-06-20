@@ -1,0 +1,7 @@
+# Menu Extraction Pipeline Requirements
+paddleocr>=2.8.0
+paddlepaddle>=2.6.0         # CPU version (use paddlepaddle-gpu if you have NVIDIA GPU)
+tqdm>=4.66.0
+python-dotenv>=1.0.0
+openai>=1.0.0
+Pillow>=10.0.0              # For image handling if needed later
