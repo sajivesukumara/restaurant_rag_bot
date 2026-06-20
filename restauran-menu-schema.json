@@ -3,18 +3,22 @@
     "id": "string",
     "name": "string",
     "address": "string",
-    "cuisine_type": "string",
+    "cuisine_type": ["array of strings"],
     "source": "string",
     "source_file": "string",
     "menu": [
       {
         "id": "string",
+        "original_name": "string",
+        "canonical_name": "string",
         "name": "string",
         "category": "string",
+        "normalized_category": "string",
         "sub_category": "string",
         "veg_nonveg": "string",
         "dietary_tags": ["array"],
         "ingredients": ["array"],
+        "normalized_ingredients": ["array"],
         "allergens": ["array"],
         "price": number,
         "currency": "string",
@@ -32,6 +36,14 @@
         "tags": ["array"],
         "halal": boolean,
         "jain_available": boolean,
+        "availability": {
+          "available": boolean,
+          "seasonal": boolean,
+          "season_name": "string | null",
+          "meal_slots": ["array"],
+          "days": ["array"]
+        },
+        "confidence_score": number,
         "search_text": "string"
       }
     ]
