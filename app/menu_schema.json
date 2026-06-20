@@ -1,0 +1,38 @@
+{
+  "restaurant": {
+    "id": "string",
+    "name": "string",
+    "address": "string or null",
+    "cuisine_type": ["array of strings"],
+    "source": "Menu Image",
+    "source_file": "string",
+    "menu": [
+      {
+        "id": "string",
+        "original_name": "string",
+        "canonical_name": "string (lowercase_with_underscores)",
+        "name": "string",
+        "category": "string",
+        "normalized_category": "string",
+        "sub_category": "string",
+        "veg_nonveg": "Vegetarian | Non-Vegetarian | Eggetarian",
+        "ingredients": ["array"],
+        "normalized_ingredients": ["array"],
+        "allergens": ["array"],
+        "price": "number",
+        "currency": "string",
+        "description": "string",
+        "pairings": ["array"],
+        "halal": "boolean",
+        "jain_available": "boolean",
+        "availability": {
+          "available": "boolean",
+          "seasonal": "boolean",
+          "meal_slots": ["array"],
+          "days": ["array"]
+        },
+        "confidence_score": "number (0.0 - 1.0)"
+      }
+    ]
+  }
+}
