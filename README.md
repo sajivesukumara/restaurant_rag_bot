@@ -117,5 +117,9 @@ Use open-source models (sentence-transformers, InstructorXL) instead of cloud em
 Sample Data: test/data/tanjaor-menu1.json, test/data/japanese-menu1.json
 
 
+|Approach | How It Works | Pros| Cons | Recommended For|
+|---------|--------------|-----|------|----------------|
+|1. LLM-based Filling (Current)| You give the raw/existing JSON to an LLM (like me), and I intelligently fill the new normalization fields. | Fast, smart, understands context, good quality | Slightly expensive at scale, less consistent | Early stage, small-medium datasets, high quality
+|2. Normalization Script | A Python script reads previous JSON → applies rules + optional LLM calls → outputs new enriched JSON.|"Scalable, reproducible, cheap, consistent | Requires development effort | Large-scale production dataset|
 
 Assisted by : Microsoft Copilot, Grok
